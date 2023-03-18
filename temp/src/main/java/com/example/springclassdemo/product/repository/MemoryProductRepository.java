@@ -1,9 +1,8 @@
-package com.example.springclassdemo.repository;
+package com.example.springclassdemo.product.repository;
 
-import com.example.springclassdemo.domain.Product;
+import com.example.springclassdemo.product.domain.Product;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.*;
 
 @Repository

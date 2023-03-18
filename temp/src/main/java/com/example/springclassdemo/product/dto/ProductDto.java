@@ -1,4 +1,4 @@
-package com.example.springclassdemo.domain;
+package com.example.springclassdemo.product.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

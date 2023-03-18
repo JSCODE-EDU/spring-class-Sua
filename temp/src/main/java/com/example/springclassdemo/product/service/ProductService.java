@@ -1,8 +1,10 @@
-package com.example.springclassdemo.service;
+package com.example.springclassdemo.product.service;
 
-import com.example.springclassdemo.domain.Product;
-import com.example.springclassdemo.domain.ProductDto;
-import com.example.springclassdemo.repository.ProductRepository;
+import com.example.springclassdemo.product.base.exception.ProductNoneExsistsException;
+import com.example.springclassdemo.product.base.exception.SameProductNameExsistsException;
+import com.example.springclassdemo.product.domain.Product;
+import com.example.springclassdemo.product.dto.ProductDto;
+import com.example.springclassdemo.product.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,17 +34,25 @@ public class ProductService {
     private void ifSameProductNameExsistsException(ProductDto productDto) {
         productRepository.findByName(productDto.getName())
                 .ifPresent(m -> {
-                    throw new IllegalStateException("이미 존재하는 상품입니다.");
+                    throw new SameProductNameExsistsException();
                 });
     }
 
     private void ifProductNoneExsistsException(String productName) {
         if(productRepository.findByName(productName).isEmpty()){
-            throw new IllegalStateException("존재하지 않는 상품입니다.");
+            throw new ProductNoneExsistsException();
+        };
+
+    }
+
+    private void ifProductNoneExsistsException(int productId) {
+        if(productRepository.findById(productId).isEmpty()){
+            throw new ProductNoneExsistsException();
         };
     }
 
     public Product findById(int productId) {
+        ifProductNoneExsistsException(productId);
         return productRepository.findById(productId).get();
     }
 

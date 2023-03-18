@@ -1,6 +1,6 @@
-package com.example.springclassdemo.repository;
+package com.example.springclassdemo.product.repository;
 
-import com.example.springclassdemo.domain.Product;
+import com.example.springclassdemo.product.domain.Product;
 
 import java.util.List;
 import java.util.Optional;

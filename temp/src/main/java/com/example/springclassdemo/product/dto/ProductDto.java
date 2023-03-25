@@ -1,10 +1,12 @@
 package com.example.springclassdemo.product.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 public class ProductDto {
 
     private String name;
@@ -23,14 +25,14 @@ public class ProductDto {
         this.price = price;
     }
 
-    public int getId() { return id; }
+//    public int getId() { return id; }
     public void setName(String name) {
         this.name = name;
     }
-    public String getName() { return name; }
+//    public String getName() { return name; }
 
     public void setPrice(Long price) {
         this.price = price;
     }
-    public Long getPrice() { return price; }
+//    public Long getPrice() { return price; }
 }

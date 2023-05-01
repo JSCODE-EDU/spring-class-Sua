@@ -1,4 +1,4 @@
-package com.example.springclassdemo.domain;
+package com.example.springclassdemo.product.domain;
 
 import lombok.Getter;
 

@@ -1,13 +1,13 @@
-package com.example.springclassdemo.repository;
+package com.example.springclassdemo.product.repository;
 
-import com.example.springclassdemo.domain.Product;
+import com.example.springclassdemo.product.domain.Product;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.*;
 
 @Repository
-public class MemoryProductRepository implements ProductRepository {
+public class MemoryProductRepository // implements ProductRepository
+{
 
     private static Map<Integer, Product> store = new HashMap<>();
     private static int sequence = 0;
@@ -27,19 +27,19 @@ public class MemoryProductRepository implements ProductRepository {
     }
 
     // 전체 상품을 조회하는 메소드
-    @Override
+//    @Override
     public List<Product> findAll() {
         return new ArrayList<>(store.values());
     }
 
     // 특정 상품을 조회하는 메소드 - id
-    @Override
+//    @Override
     public Optional<Product> findById(Integer id) {
         return Optional.ofNullable(store.get(id));
     }
 
     // 특정 상품을 조회하는 메소드 - name
-    @Override
+//    @Override
     public Optional<Product> findByName(String name) {
         return store.values().stream().filter(product -> product.getName().equals(name)).findAny();
     }
